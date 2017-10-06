@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/theming';
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 @include mat-core();
 
@@ -9,4 +8,12 @@ body, html {
   margin: 0;
   height: 100%;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #f2f2f2;
 }
+
+$inbox-app-primary: mat-palette($mat-blue);
+$inbox-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$inbox-app-warn: mat-palette($mat-red);
+$inbox-app-theme: mat-light-theme($inbox-app-primary, $inbox-app-accent, $inbox-app-warn);
+
+@include angular-material-theme($inbox-app-theme);

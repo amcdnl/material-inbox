@@ -1,11 +1,74 @@
-<md-toolbar color="primary">
-  Header
-</md-toolbar>
-<div fxLayout="row">
-  <div fxFlex="20%">
-    Left Nav
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav-nav">
+    <mat-list>
+      <mat-list-item>
+        <button mat-button routerLink="/" routerLinkActive>
+          <mat-icon>inbox</mat-icon>
+          Inbox
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/snoozed" routerLinkActive>
+          <mat-icon>alarm</mat-icon>
+          Snoozed
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/done" routerLinkActive>
+          <mat-icon>done</mat-icon>
+          Done
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <hr />
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/drafts" routerLinkActive>
+          <mat-icon>drafts</mat-icon>
+          Drafts
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/sent" routerLinkActive>
+          <mat-icon>send</mat-icon>
+          Sent
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/spam" routerLinkActive>
+          <mat-icon>report_problem</mat-icon>
+          Spam
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <div class="sidenav-content">
+    <mat-toolbar color="primary" role="header" fxLayout="row" class="primary-toolbar">
+      <div fxFlex="75px">
+        <button type="button" class="menu-btn" mat-button (click)="sidenav.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div fxFlex>
+        Inbox
+      </div>
+    </mat-toolbar>
+
+    <content>
+      <mat-list>
+        <mat-list-item class="category-title">
+          Today
+        </mat-list-item>
+        <mat-list-item>
+          <app-message></app-message>
+        </mat-list-item>
+        <mat-list-item>
+          <app-message></app-message>
+        </mat-list-item>
+      </mat-list>
+    </content>
+    
   </div>
-  <div fxFlex fxFlexFill>
-    <router-outlet></router-outlet>
-  </div>
-</div>
+
+</mat-sidenav-container>

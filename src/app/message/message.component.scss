@@ -1,0 +1,29 @@
+app-message {
+  .avatar {
+    display: inline-block;
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+    color: #FFF;
+    text-align: center;
+    line-height: 28px;
+  
+    &.accent-1 {
+      background: #7b1fa2;
+    }
+  }
+  
+  .mat-card {
+    color: #212121;
+    padding: 12px 24px;
+  
+    .mat-button {
+      padding: 0 5px;
+      min-width: auto;
+    }
+  
+    .btn-col {
+      text-align: right;
+    }
+  }
+}

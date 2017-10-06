@@ -2,15 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { MdSnackBarModule, MdToolbarModule } from '@angular/material';
+import {
+  MatSidenavModule, MatToolbarModule, MatButtonModule, MatIconModule,
+  MATERIAL_COMPATIBILITY_MODE, MatCardModule
+} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
+import { MessageComponent } from './message/message.component';
 import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -19,10 +24,15 @@ import { routes } from './app.routes';
       useHash: false
     }),
     FlexLayoutModule,
-    MdToolbarModule,
-    MdSnackBarModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [
+    { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
