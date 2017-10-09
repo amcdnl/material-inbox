@@ -21,9 +21,29 @@ import { Component, HostBinding, ViewEncapsulation, Input, Output, EventEmitter 
           {{subject}}
         </div>
         <div fxFlex="15%" class="btn-col">
-          <button mat-icon-button matTooltip="Remind Me..." matTooltipPosition="above">
+          <button
+            [matMenuTriggerFor]="snoozeMenu"
+            mat-icon-button
+            matTooltip="Remind Me..."
+            matTooltipPosition="above">
             <mat-icon>alarm</mat-icon>
           </button>
+          <mat-menu class="snooze-menu" #snoozeMenu="matMenu" [overlapTrigger]="false" xPosition="before">
+            <h3>Snooze until...</h3>
+            <hr />
+            <button mat-menu-item>
+              <mat-icon>brightness_6</mat-icon>
+              Later Today
+            </button>
+            <button mat-menu-item>
+              <mat-icon>brightness_5</mat-icon>
+              Tomorrow
+            </button>
+            <button mat-menu-item>
+              <mat-icon>today</mat-icon>
+              Later this week
+            </button>
+          </mat-menu>
           <button mat-icon-button (click)="removed.emit()" matTooltip="Delete" matTooltipPosition="above">
             <mat-icon>delete</mat-icon>
           </button>
@@ -34,7 +54,7 @@ import { Component, HostBinding, ViewEncapsulation, Input, Output, EventEmitter 
       </div>
       <div class="message-body" [fxShow]="opened" fxLayout="row">
         <div fxFlex="50px">
-          <span class="avatar accent-1">
+          <span class="avatar accent-1 large">
             {{avatar}}
           </span>
         </div>
@@ -44,7 +64,7 @@ import { Component, HostBinding, ViewEncapsulation, Input, Output, EventEmitter 
             <button mat-icon-button class="message-more" [matMenuTriggerFor]="menu">
               <mat-icon>more_vert</mat-icon>
             </button>
-            <mat-menu class="message-momre-menu" #menu="matMenu" [overlapTrigger]="false" xPosition="before">
+            <mat-menu class="message-more-menu" #menu="matMenu" [overlapTrigger]="false" xPosition="before">
               <button mat-menu-item (click)="onReply()">
                 <mat-icon>reply</mat-icon>
                 Reply

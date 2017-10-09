@@ -1,17 +1,4 @@
 app-message {
-  .avatar {
-    display: inline-block;
-    border-radius: 50%;
-    height: 28px;
-    width: 28px;
-    color: #FFF;
-    text-align: center;
-    line-height: 28px;
-  
-    &.accent-1 {
-      background: #7b1fa2;
-    }
-  }
   
   .mat-card {
     color: #212121;
@@ -64,6 +51,19 @@ app-message {
 
 }
 
-.message-momre-menu {
+.message-more-menu {
   width: 200px;
+}
+
+.snooze-menu {
+  width: 200px;
+
+  h3 {
+    padding: 0 15px;
+    margin: 5px 0;
+  }
+
+  button {
+    font-size: 85%;
+  }
 }

@@ -57,8 +57,17 @@ import { NewMessageComponent } from './new-message/new-message.component';
               <mat-icon>menu</mat-icon>
             </button>
           </div>
-          <div fxFlex>
+          <div fxFlex="100px">
             Inbox
+          </div>
+          <div fxFlex fxFill class="search-col">
+            <input type="text" class="search-bar" placeholder="Search..." />
+            <mat-slide-toggle class="pin-toggle"></mat-slide-toggle>
+          </div>
+          <div fxFlex="200px" class="avatar-col">
+            <span class="avatar accent-1 large">
+              AM
+            </span>
           </div>
         </mat-toolbar>
         <content>
@@ -81,7 +90,7 @@ import { NewMessageComponent } from './new-message/new-message.component';
         </content>
         <button
           mat-fab
-          color="primary"
+          color="accent"
           class="new-fab"
           (click)="onNewMessage()"
           matTooltip="New Message"

@@ -60,3 +60,65 @@ hr {
   right: 25px;
   bottom: 25px;
 }
+
+.search-col {
+  line-height: 62px;
+  text-align: center;
+}
+
+.search-bar {
+  background: #6097f6;
+  border-radius: 2px;
+  min-width: 144px;
+  outline: none;
+  color: #FFF;
+  border: none;
+  height: 38px;
+  line-height: 38px;
+  width: 100%;
+  padding: 0 30px;
+  font-weight: 100;
+  font-size: 80%;
+  max-width: 550px;
+  margin: 0 auto;
+
+  &::placeholder {
+    color: #FFF;
+  }
+
+  &::before {
+    box-shadow: inset -24px 0 12px -12px #898984;
+    transition: box-shadow .15s;
+  }
+}
+
+.mat-toolbar-layout {
+  width: 100%;
+}
+
+.pin-toggle {
+  margin-left: 10px;
+}
+
+.avatar {
+  display: inline-block;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  color: #FFF;
+  text-align: center;
+  line-height: 28px;
+  font-size: 12px;
+  &.accent-1 {
+    background: #7b1fa2;
+  }
+  &.large {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+  }
+}
+
+.avatar-col {
+  text-align: right;
+}

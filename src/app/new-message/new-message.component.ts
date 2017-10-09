@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation, Inject } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent, MAT_DIALOG_DATA } from '@angular/material';
-import {Observable} from 'rxjs/Observable';
+import { MatChipInputEvent, MAT_DIALOG_DATA, MdAutocompleteSelectedEvent } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
 
 const COMMA = 188;
 
@@ -30,6 +30,7 @@ const COMMA = 188;
           <input
             placeholder="To"
             matInput
+            #recipientInput
             [formControl]="recipientsCtrl"
             [matAutocomplete]="auto"
             [matChipInputFor]="chipList"
@@ -38,7 +39,7 @@ const COMMA = 188;
             (matChipInputTokenEnd)="addRecipient($event)"
           />
         </mat-chip-list>
-        <mat-autocomplete #auto="matAutocomplete">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
           <mat-option *ngFor="let option of filteredContacts | async" [value]="option">
             {{ option }}
           </mat-option>
@@ -76,6 +77,8 @@ export class NewMessageComponent {
   recipientsCtrl = new FormControl();
   filteredContacts: Observable<any[]>;
 
+  @ViewChild('recipientInput') recipientInput;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     if (data.to && data.subject) {
       this.recipients.push({ name: data.to });
@@ -109,9 +112,14 @@ export class NewMessageComponent {
     }
   }
 
-  filterContacts(name: string) {
+  filterContacts(name: string): string[] {
     return this.contacts.filter(contact =>
       contact.toLowerCase().indexOf(name.toLowerCase()) === 0);
+  }
+
+  onOptionSelected(event: MdAutocompleteSelectedEvent): void {
+    this.recipients.push({ name: event.option.value });
+    this.recipientInput.nativeElement.value = '';
   }
 
 }

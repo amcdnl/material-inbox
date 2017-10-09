@@ -7,7 +7,7 @@ import {
   MatSidenavModule, MatToolbarModule, MatButtonModule, MatIconModule,
   MATERIAL_COMPATIBILITY_MODE, MatCardModule, MatMenuModule, MatTooltipModule,
   MatDialogModule, MatChipsModule, MatAutocompleteModule, MatFormFieldModule,
-  MatInputModule, MatSnackBarModule
+  MatInputModule, MatSnackBarModule, MatSlideToggleModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -42,7 +42,8 @@ import { routes } from './app.routes';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSlideToggleModule
   ],
   entryComponents: [
     NewMessageComponent
