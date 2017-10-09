@@ -15,6 +15,14 @@ app-message {
     cursor: pointer;
   }
 
+  .message-subject {
+    line-height: 40px;
+  }
+
+  .mat-content {
+    margin: 0 -24px;
+  }
+
   &.message-opened {
     .message-toolbar {
       border-bottom: solid 1px #e0e0e0;
