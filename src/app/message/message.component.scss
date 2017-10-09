@@ -15,15 +15,55 @@ app-message {
   
   .mat-card {
     color: #212121;
-    padding: 12px 24px;
-  
-    .mat-button {
-      padding: 0 5px;
-      min-width: auto;
-    }
+    padding: 0;
   
     .btn-col {
       text-align: right;
     }
   }
+
+  .message-toolbar {
+    padding: 12px 24px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &.message-opened {
+    .message-toolbar {
+      border-bottom: solid 1px #e0e0e0;
+
+      .message-subject {
+        font-size: 110%;
+        font-weight: 100;
+      }
+    }
+  }
+
+  .message-body {
+    position: relative;
+    padding: 20px 24px;
+
+    .message-from {
+      font-weight: bold;
+    }
+
+    .message-body-toolbar {
+      margin-bottom: 10px;
+    }
+
+    .message-to {
+      color: #7a7a7a;
+    }
+
+    .message-more {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+}
+
+.message-momre-menu {
+  width: 200px;
 }

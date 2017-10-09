@@ -1,0 +1,37 @@
+.new-message-toolbar {
+  background: #424242;
+  color: #fff;
+  padding: 11px 20px;
+  position: relative;
+  margin: -24px;
+
+  .mat-icon {
+    vertical-align: middle;
+  }
+
+  .mat-icon-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.recipients-list {
+  width: 100%;
+}
+
+.subject-input {
+  width: 100%;
+}
+
+.new-message-content {
+  padding: 24px;
+}
+
+.body-input {
+  width: 100%;
+}
+
+.new-message-btns {
+  text-align: right;
+}
