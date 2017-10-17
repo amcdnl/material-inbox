@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, ViewChild, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent, MAT_DIALOG_DATA, MdAutocompleteSelectedEvent } from '@angular/material';
+import { MatChipInputEvent, MAT_DIALOG_DATA, MatAutocompleteSelectedEvent } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 
 const COMMA = 188;
@@ -117,7 +117,7 @@ export class NewMessageComponent {
       contact.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
-  onOptionSelected(event: MdAutocompleteSelectedEvent): void {
+  onOptionSelected(event: MatAutocompleteSelectedEvent): void {
     this.recipients.push({ name: event.option.value });
     this.recipientInput.nativeElement.value = '';
   }
