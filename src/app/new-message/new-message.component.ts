@@ -24,7 +24,7 @@ const COMMA = 188;
             [selectable]="true"
             [removable]="true"
             (remove)="removeRecipient(recipient)">
-            {{recipient.name}}
+            {{recipient}}
             <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
           </mat-chip>
           <input
@@ -64,14 +64,14 @@ export class NewMessageComponent {
 
   separatorKeysCodes = [ENTER, COMMA];
 
-  contacts = [
+  contacts: string[] = [
     'Austin Mcdaniel',
     'Jeremy Elbourn',
     'Jules Kremer',
     'Brad Green',
     'Tina Gao'
   ];
-  recipients = [];
+  recipients: string[] = [];
   subjectCtrl = new FormControl();
   bodyCtrl = new FormControl();
   recipientsCtrl = new FormControl();
@@ -81,7 +81,7 @@ export class NewMessageComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     if (data.to && data.subject) {
-      this.recipients.push({ name: data.to });
+      this.recipients.push(data.to);
       this.subjectCtrl.setValue(data.subject);
     }
 
@@ -96,7 +96,7 @@ export class NewMessageComponent {
 
     // Add our person
     if ((value || '').trim()) {
-      this.recipients.push({ name: value.trim() });
+      this.recipients.push(value.trim());
     }
 
     // Reset the input value
@@ -105,7 +105,7 @@ export class NewMessageComponent {
     }
   }
 
-  removeRecipient(recipient: any): void {
+  removeRecipient(recipient: string): void {
     const index = this.recipients.indexOf(recipient);
     if (index >= 0) {
       this.recipients.splice(index, 1);
@@ -118,7 +118,7 @@ export class NewMessageComponent {
   }
 
   onOptionSelected(event: MatAutocompleteSelectedEvent): void {
-    this.recipients.push({ name: event.option.value });
+    this.recipients.push(event.option.value);
     this.recipientInput.nativeElement.value = '';
   }
 

@@ -1,3 +1,9 @@
+$search-bar-bg: #6097f6;
+$search-bar-color: #FFF;
+
+$avatar-bg: #7b1fa2;
+$avatar-color: #FFF;
+
 .sidenav-nav {
   width: 250px;
   padding: 5px;
@@ -67,11 +73,11 @@ hr {
 }
 
 .search-bar {
-  background: #6097f6;
+  background: $search-bar-bg;
   border-radius: 2px;
   min-width: 144px;
   outline: none;
-  color: #FFF;
+  color: $search-bar-color;
   border: none;
   height: 38px;
   line-height: 38px;
@@ -83,7 +89,7 @@ hr {
   margin: 0 auto;
 
   &::placeholder {
-    color: #FFF;
+    color: $search-bar-color;
   }
 
   &::before {
@@ -105,13 +111,12 @@ hr {
   border-radius: 50%;
   height: 28px;
   width: 28px;
-  color: #FFF;
+  color: $avatar-color;
   text-align: center;
   line-height: 28px;
   font-size: 12px;
-  &.accent-1 {
-    background: #7b1fa2;
-  }
+  background: $avatar-bg;
+  
   &.large {
     height: 32px;
     width: 32px;

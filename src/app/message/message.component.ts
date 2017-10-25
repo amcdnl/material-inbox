@@ -103,7 +103,7 @@ export class MessageComponent {
   @Input() recieved = new Date();
 
   @Output() removed = new EventEmitter<void>();
-  @Output() reply = new EventEmitter<any>();
+  @Output() reply = new EventEmitter<{ to: string, subject: string }>();
 
   onOpenToggle(): void {
     this.opened = !this.opened;

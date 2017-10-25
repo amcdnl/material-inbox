@@ -1,6 +1,9 @@
+$toolbar-bg: #424242;
+$toolbar-color: #FFF;
+
 .new-message-toolbar {
-  background: #424242;
-  color: #fff;
+  background: $toolbar-bg;
+  color: $toolbar-color;
   padding: 11px 20px;
   position: relative;
   margin: -24px;
